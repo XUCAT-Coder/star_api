@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <script src="/dao/mkdir.js"></script> -->
+    <script>
+        //寄生组合式继承
+        // function Person(name,age){
+        //     this.name=name
+        //     this.age=age
+        // }
+        // Person.prototype.get=function(){
+        //     console.log(this.name+'get'+this.age)
+        // }
+        // function createLink(subType,superType){
+        //     subType.prototype=Object.create(superType.prototype)
+        //     Object.defineProperty(subType.prototype,"constractor",{
+        //         enumerable:true,
+        //         writable:true,
+        //         configurable:true,
+        //         value:subType
+        //     })
+        // }
+        // function Student(name,age){
+        //     this.name=name
+        //     this.age=age
+        //     Person.call(this,name,age)
+        // }
+        // createLink(Student,Person)
+        // Student.prototype.set=function(){
+        //     console.log(this.name+'set'+this.age)
+        // }
+        // var s=new Student('xwl',18)
+        // console.log(s)
+        class Person{
+            constructor(name,age){
+                this.name=name
+                this.age=age
+                this._address='四平'
+            }
+            get address(){
+                return this._address
+            }
+            set address(newaddress){
+                this._address=newaddress
+            }
+            eat(){
+                console.log(this.name+'to eat in'+this._address)
+            }
+        }
+        var p=new Person('xwl',18)
+        p.address='露水河'
+        p.eat()
+    </script>
+</body>
+</html>
